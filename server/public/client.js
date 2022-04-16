@@ -13,6 +13,10 @@ function onReady(){
 
 function makeMathObject(){
     console.log('in makeMathObject');
+    if ($('#num1Input').val()===''|| $('#num2Input').val()===''){
+        alert('please enter two numbers!');
+        return false
+    }
     let mathObject = {
         number1: $('#num1Input').val(),
         number2: $('#num2Input').val(),

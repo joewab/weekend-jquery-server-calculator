@@ -16,7 +16,16 @@ let equations = [];
 
 app.post('/equations', (req, res) => {
     console.log('Post /equations');
-    let newEquation = req.body;
+    let newEquation = {
+        number1: req.body.number1,
+        number2: req.body.number2,
+        operator: req.body.operator,
+        solution: 
+        eval(req.body.number1+
+        req.body.operator+
+        req.body.number2)
+    }
+
     equations.push(newEquation);
     console.log(newEquation);
     res.sendStatus(200);
