@@ -4,28 +4,28 @@ $(document).ready(onReady);
 
 function onReady(){
     console.log('JQ');
-    $('.mathButton').on('click', makeMathObject);
+    $('.mathButton').on('click', makeEquationObject);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 //       /         /         /         /         /         /         /         / 
 
 
-function makeMathObject(){
-    console.log('in makeMathObject');
+function makeEquationObject(){
+    console.log('in makeEquationObject');
     if ($('#num1Input').val()===''|| $('#num2Input').val()===''){
         alert('please enter two numbers!');
         return false
     }
-    let mathObject = {
+    let equationObject = {
         number1: $('#num1Input').val(),
         number2: $('#num2Input').val(),
         operator: $(this).text()
     }
 
-    console.log(mathObject);
+    console.log(equationObject);
    
-    postMathObject(mathObject);
+    postMathObject(equationObject);
 
 }
 
@@ -43,4 +43,32 @@ function postMathObject(equation){
         console.log('response of post is:');
         console.log(response);
       })
+    
+      getAndRenderEquationObjects()
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+//       /         /         /         /         /         /         /         / 
+
+
+function getAndRenderEquationObjects(){
+    $.ajax({
+        method: 'GET',
+        url: '/equations'
+      })
+       .then(function(response){
+        console.log('the server sent me something!');
+        console.log(response);
+        
+        $('#answer').empty();
+        $('#answer').append(`solution: ${response[response.length-1].solution}`);
+      
+        $('#pastEquations').empty();
+        for(i=response.length-1; i>=0; i--){
+          $('#pastEquations').append(
+            `<li>${response[i].number1} ${response[i].operator} ${response[i].number2} = ${response[i].solution}</li>`
+          )
+        }
+    })
 }

@@ -20,14 +20,34 @@ app.post('/equations', (req, res) => {
         number1: req.body.number1,
         number2: req.body.number2,
         operator: req.body.operator,
-        solution: 
-        eval(req.body.number1+
-        req.body.operator+
-        req.body.number2)
+        solution: doMath(req.body.number1, req.body.operator, req.body.number2,)
     }
 
     equations.push(newEquation);
     console.log(newEquation);
     res.sendStatus(200);
     console.log(equations);
-  })
+})
+
+  app.get('/equations', (req, res) => {
+    console.log('GET /equations');
+    res.send(equations);
+})
+
+function doMath(num1, operator, num2){
+    let solution;
+    if (operator === '+'){
+        solution = (Number(num1) + Number(num2))
+    } 
+    else if (operator === '-'){
+        solution = (Number(num1) - Number(num2))
+    }
+    else if (operator === '*'){
+        solution = (Number(num1) * Number(num2))
+    }
+    else if (operator === '/'){
+        solution = (Number(num1) / Number(num2))
+    }
+    return solution
+}
+
