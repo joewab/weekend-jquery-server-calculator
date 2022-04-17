@@ -12,7 +12,19 @@ app.listen(PORT, function() {
   console.log(`The server is running! Check it out at http://localhost:${PORT}!`);
 })
 
+////////////////////////////////////////////////////////////////////////////////
+//       /         /         /         /         /         /         /         / 
+
+//naming the array that will hold the equations
 let equations = [];
+
+////////////////////////////////////////////////////////////////////////////////
+//       /         /         /         /         /         /         /         / 
+
+
+//receiving the equation object from the client,
+//performing the equation, creating a new object with the solution as a property,
+//and pushing the new object into the array above^^
 
 app.post('/equations', (req, res) => {
     console.log('Post /equations');
@@ -29,10 +41,12 @@ app.post('/equations', (req, res) => {
     console.log(equations);
 })
 
-  app.get('/equations', (req, res) => {
-    console.log('GET /equations');
-    res.send(equations);
-})
+////////////////////////////////////////////////////////////////////////////////
+//       /         /         /         /         /         /         /         / 
+
+
+//this funtion is called when the new object is being created above, the answer
+//will become the "solution" property of that object.
 
 function doMath(num1, operator, num2){
     let solution;
@@ -51,3 +65,11 @@ function doMath(num1, operator, num2){
     return solution
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//       /         /         /         /         /         /         /         / 
+
+
+app.get('/equations', (req, res) => {
+    console.log('GET /equations');
+    res.send(equations);
+})
