@@ -10,9 +10,63 @@
     <title>Calculator</title>
 </head>
 <body>
-    <h1>Calculator</h1>
+    <h1 id="header">Calculator</h1>
 
-    <input id="num1Input" type ="number" placeholder="first number here">
+    <div class="flex-grid">
+      <div>
+        <div class="flex-grid">
+            <h2 id="calculatorScreen"></h2>
+            <h2 id="clearScreen">C</h2>
+        </div>
+
+        <ul id="keypad">
+        <div class="flex-grid">
+            <div class="col">
+                <li class="numberButton">7</li>
+                <li class="numberButton">4</li>
+                <li class="numberButton">1</li>
+                <li class="numberButton">0</li>
+            </div>
+
+            <div class="col">
+                <li class="numberButton">8</li>
+                <li class="numberButton">5</li>
+                <li class="numberButton">2</li>
+                <li class="numberButton">.</li>
+            </div>
+
+            <div class="col">
+                <li class="numberButton">9</li>
+                <li class="numberButton">6</li>
+                <li class="numberButton">3</li>
+                <li class="solveButton">=</li>
+            </div>
+
+            <div class="col">
+                <li class="operatorButton">+</li>
+                <li class="operatorButton">-</li>
+                <li class="operatorButton">*</li>
+                <li class="operatorButton">/</li>
+            </div>
+        </div>
+        </ul>
+
+      </div>
+
+        <div id="answer"></div>
+        <div>
+            <h3 id="previousEquations"></h3>
+            <ul id="equations">
+            </ul>
+        </div>
+        
+    </div>
+
+
+    <!--code that was replaced with new code for the stretch goals: 
+        
+        
+        <input id="num1Input" type ="number" placeholder="first number here">
    
     <button id="addButton" class="mathButton">+</button>
     <button id="subtractButton" class="mathButton">-</button>
@@ -33,44 +87,7 @@
 
     <ul id="pastEquations">
 
-    </ul>
-
-    <div class="flex-grid">
-        <h2 id="calculatorScreen"></h2>
-        <h2 id="clearScreen">C</h2>
-    </div>
-
-    <ul id="keypad">
-      <div class="flex-grid">
-        <div class="col">
-            <li class="numberButton">7</li>
-            <li class="numberButton">4</li>
-            <li class="numberButton">1</li>
-            <li class="numberButton">0</li>
-        </div>
-
-        <div class="col">
-            <li class="numberButton">8</li>
-            <li class="numberButton">5</li>
-            <li class="numberButton">2</li>
-            <li class="numberButton">.</li>
-        </div>
-
-        <div class="col">
-            <li class="numberButton">9</li>
-            <li class="numberButton">6</li>
-            <li class="numberButton">3</li>
-            <li class="numberButton">=</li>
-        </div>
-
-        <div class="col">
-            <li class="numberButton">+</li>
-            <li class="numberButton">-</li>
-            <li class="numberButton">*</li>
-            <li class="numberButton">/</li>
-        </div>
-      </div>
-    </ul>
+    </ul> -->
     
 </body>
 </html>
