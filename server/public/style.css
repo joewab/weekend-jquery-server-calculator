@@ -16,6 +16,10 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
+#answer {
+    margin: 2em;
+}
+
 #clearScreen {
     border: 1px solid black;
     margin: .5em;
